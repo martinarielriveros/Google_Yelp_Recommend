@@ -55,7 +55,7 @@ El presente documento establece el alcance del proyecto de análisis de opinione
 </div>
 &nbsp;
 
-Elegimos realizar la visualizacion e interaccion con los dos productos terminados que ofrecemos, hacerlo a traves de una web. Esta web permite interactuar con los dos grandes resultados de nuestro trabajo:
+Elegimos una web para realizar la visualizacion e interaccion con los dos productos terminados que ofrecemos. Esta web permite interactuar con los dos grandes resultados de nuestro trabajo:
 
 - EL Dashboard
 - El modelo entrenado de ML
@@ -67,7 +67,7 @@ Pero para que la la interfaz web pueda mostrar los datos, se tuvieron que realiz
 **Streamlit como front-end framework general:**
 
 Su simplicidad de uso permitio que nos centremos en los aspectos fundamentales del trabajo enconmendado: obtener informacion en base a los datos.
-Su  simple API no requiere conocimientos avanzados de configuracion de rutas, escribir y correr el back-end, manejar consultas HTTP, conectar el front-end, escrbir HTML, CSS, JS, etc. Si bien no tiene un alto nivel de configuracion sin incorporacion de otras herramientas, cumple su cometido sin problemas.
+Su API no requiere conocimientos avanzados de configuracion de rutas, escribir y correr el back-end, manejar consultas HTTP, conectar el front-end, escrbir HTML, CSS, JS, etc. Si bien no tiene un alto nivel de configuracion sin incorporacion de otras herramientas, cumple su cometido sin problemas.
 
 **Docker como plataforma para contenedorizar la interfaz web:**
 
@@ -105,9 +105,7 @@ El proceso para disponibilizar un endpoint publico de la web fue:
 2) Subirlo a Google Artifact Registry: un repositorio de contenedores (y mas) en la nube.
 3) Crear el servicio en Google Cloud Run: como resultado de la creacion, se disponibiliza un endpoint publico para su consumo.
 
-
 ***El Dashboard y el modelo de ML:***
-
 
 Para ambos, si bien responden a origenes de datos y objetivos diferentes, comparten el mismo camino en la nube:
 
@@ -127,9 +125,6 @@ Para mantener el trafico de datos liviano entre los ordenadores que realizan las
 - request 1: se envian los parametos seleccionados al modelo de ML entrenado que reside en la nube. Esta primera request devuelve solo entre 5 y 15 indices, correpondientes a la identificacion de los comercios relevantes de acuerdo al modelo elegido.
 
 - request 2: los indices son enviados nuevamente a la nube, de manera que la la busqueda y devolucion de los datos relevantes para ser representados son solo los que se dibujan. Esto hace que el trafico si bien se realiza dos veces, el volumen de datos es despreciable.
-
-
-
 
 ## Cronograma
 
